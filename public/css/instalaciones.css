@@ -1,0 +1,95 @@
+html, body{
+    max-width: 100%;
+    width: auto;
+}
+@media only screen and (max-width : 992px) {
+    header, main, footer {
+    padding-left: 0;
+  }
+}
+.marginBottomProfile{
+    margin-bottom: 10%;
+}
+.marginDivider{
+    margin-bottom: 1em;
+}
+img {
+    display: block;
+    max-width:200px;
+    max-height:100px;
+    width: auto;
+    height: auto;
+}
+ul{
+    color: red;
+}
+
+.centerImage{
+    display: flex;
+    justify-content: center; /* align horizontal */
+}
+
+.centerDiv {
+    width:70%;
+    margin:0 auto;
+    position: relative;
+    top: 3em;
+}
+.data{
+    margin-top: 2em;
+}
+.tabServices{
+    position: relative;
+    left: 4em;
+}
+
+.marginButton{
+    margin-bottom: 2em;
+}
+
+.marginTab2{
+    position: relative;
+    left: 2em;
+}
+
+.boldText{
+    font-weight: bold;
+    font-size: 1.2em;
+}
+@media only screen and (min-device-width: 100px) and (max-device-width: 1024px){
+    .centerDiv {
+        margin: auto;
+        width: 60%;
+    }
+}
+header, main, footer{
+    padding-left: 300px;
+}
+@media only screen and (max-width : 992px) {
+    header, main, footer {
+        padding-left: 0;
+    }
+    #slide-out{
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+    }
+    .marginBottomProfile{
+        margin-bottom: 10%;
+    }
+    .tabServices{
+        position: relative;
+        left: 1.5em;
+    }
+    .mobileTitleView{
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .boldText{
+        font-size: 1em;
+    }
+    .marginTab2{
+        position: relative;
+        left: 1.5em;
+    }
+}

@@ -1,0 +1,43 @@
+html, body{
+    height: 100%;
+}
+
+header {
+    background-color: #E5E5E4;
+    margin-bottom: 5%;
+}
+
+img {
+    display: block;
+    max-width:300px;
+    max-height:200px;
+    width: auto;
+    height: auto;
+}
+
+.login-box{
+    position: absolute;
+    margin: auto;
+    top: 12em;
+    right:0; bottom:0; left:0;
+}
+
+#nombreUsuario, #password{
+    margin-bottom: 0.5em;
+}
+.errorTxt1, .errorTxt2{
+    color: red;
+    font-size: 0.9em;
+}
+
+@media only screen and (min-device-width: 100px) and (max-device-width: 1024px) and (orientation: landscape){
+    header{
+        margin-bottom: 5%;
+    }
+    .login-box{
+        top: 1%; /* IMPORTANT */
+        transform: translateY(1%);
+        position: relative;
+        width: 100%;
+    }
+}
