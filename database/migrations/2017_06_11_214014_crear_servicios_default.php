@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrearInstalacion extends Migration
+class CrearServiciosDefault extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CrearInstalacion extends Migration
      */
     public function up()
     {
-        Schema::create('instalacion', function (Blueprint $table) {
+        Schema::create('servicios_default', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre', '50');
+            $table->string('nombre', '30');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CrearInstalacion extends Migration
      */
     public function down()
     {
-        Schema::drop('instalacion');
+        Schema::drop('servicios_default');
     }
 }
