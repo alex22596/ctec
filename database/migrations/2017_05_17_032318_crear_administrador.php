@@ -16,7 +16,7 @@ class CrearAdministrador extends Migration
         Schema::create('administrador', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->string('nombre_usuario', '30')->unique();
-            $table->string('password', '30');
+            $table->string('password', '100');
             $table->primary('nombre_usuario');
             $table->timestamps();
         });
