@@ -13,8 +13,8 @@ class AdministradorController extends Controller
     public function iniciarSesion(Request $request)
     {
         if (Auth::attempt(['nombre_usuario' => $request['nombreUsuario'], 'password' => $request['password']])) {
-            return view('instalaciones');
+            return redirect('instalaciones');
         }
-        return redirect()->back();
+        return redirect()->back()->withErrors(['msg']);
     }
 }

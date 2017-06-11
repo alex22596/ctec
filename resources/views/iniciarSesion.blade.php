@@ -6,6 +6,7 @@
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/sweetalert.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
         <title>Iniciar Sesión</title>
     </head>
@@ -37,12 +38,16 @@
                         <input type="hidden" name="_token" value="{{ Session::token() }}">
                     </div>
                 </form>
+                @if($errors->any())
+                    <script src="js/sweetalert.min.js"></script>
+                    <script src="js/alertError.js"></script>
+                @endif
             </div>
         </div>
     </main>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
     <script src="js/jquery.validate.min.js"></script>
-    <script src="js/alert.js"></script>
+    <script src="js/validateForm.js"></script>
     </body>
 </html>

@@ -16,6 +16,6 @@ Route::get('/', function () {
 });
 
 Route::post('/login', 'AdministradorController@iniciarSesion')->name('login.post');
-Route::resource('/instalaciones','InstalacionController');
+Route::resource('instalaciones','InstalacionController');
 
 

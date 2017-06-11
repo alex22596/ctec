@@ -29,7 +29,9 @@ img {
     color: red;
     font-size: 0.9em;
 }
-
+.error{
+    color: red;
+}
 @media only screen and (min-device-width: 100px) and (max-device-width: 1024px) and (orientation: landscape){
     header{
         margin-bottom: 5%;
