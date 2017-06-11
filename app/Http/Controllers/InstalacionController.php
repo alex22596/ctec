@@ -15,8 +15,8 @@ class InstalacionController extends Controller
      */
     public function index()
     {
-        $productos = Instalacion::orderBy('id','DESC')->paginate();
-        return view('backLayout.instalaciones.indexinstalaciones', compact('productos'));
+        $instalaciones = Instalacion::orderBy('id','DESC')->paginate(5);
+        return view('backLayout.instalaciones.indexinstalaciones', compact('instalaciones'));
     }
 
     /**

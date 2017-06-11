@@ -70,6 +70,7 @@ class ComposerStaticInit3f853c8b58339abbef244c665eff11ad
         array (
             'League\\Flysystem\\' => 17,
             'Laravel\\Tinker\\' => 15,
+            'Landish\\Pagination\\' => 19,
         ),
         'I' => 
         array (
@@ -197,6 +198,10 @@ class ComposerStaticInit3f853c8b58339abbef244c665eff11ad
         array (
             0 => __DIR__ . '/..' . '/laravel/tinker/src',
         ),
+        'Landish\\Pagination\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/landish/pagination/src',
+        ),
         'Illuminate\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
@@ -286,6 +291,7 @@ class ComposerStaticInit3f853c8b58339abbef244c665eff11ad
         'CTEC\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'CTEC\\Http\\Controllers\\InstalacionController' => __DIR__ . '/../..' . '/app/Http/Controllers/InstalacionController.php',
         'CTEC\\Http\\Controllers\\PruebaController' => __DIR__ . '/../..' . '/app/Http/Controllers/PruebaController.php',
+        'CTEC\\Http\\Controllers\\ServiciosDefaultController' => __DIR__ . '/../..' . '/app/Http/Controllers/ServiciosDefaultController.php',
         'CTEC\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'CTEC\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'CTEC\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
@@ -304,7 +310,7 @@ class ComposerStaticInit3f853c8b58339abbef244c665eff11ad
         'CTEC\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'CTEC\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'CTEC\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
-        'CTEC\\ServiciosDefault' => __DIR__ . '/../..' . '/app/ServiciosDefault.php',
+        'CTEC\\ServiciosDefault' => __DIR__ . '/../..' . '/app/Models/ServiciosDefault.php',
         'CTEC\\User' => __DIR__ . '/../..' . '/app/User.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
@@ -323,7 +329,7 @@ class ComposerStaticInit3f853c8b58339abbef244c665eff11ad
         'CrearReporte' => __DIR__ . '/../..' . '/database/migrations/2017_05_17_032342_crear_reporte.php',
         'CrearRespuesta' => __DIR__ . '/../..' . '/database/migrations/2017_05_17_032914_crear_respuesta.php',
         'CrearServicio' => __DIR__ . '/../..' . '/database/migrations/2017_05_17_032449_crear_servicio.php',
-        'CreateServiciosDefaultsTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_11_080802_create_servicios_defaults_table.php',
+        'CreateServiciosDefaultsTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_11_080802_crear_servicios_defaults_table.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/CronExpression.php',
         'Cron\\DayOfMonthField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/DayOfMonthField.php',
@@ -1549,6 +1555,17 @@ class ComposerStaticInit3f853c8b58339abbef244c665eff11ad
         'JakubOnderka\\PhpConsoleColor\\ConsoleColor' => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src/JakubOnderka/PhpConsoleColor/ConsoleColor.php',
         'JakubOnderka\\PhpConsoleColor\\InvalidStyleException' => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src/JakubOnderka/PhpConsoleColor/InvalidStyleException.php',
         'JakubOnderka\\PhpConsoleHighlighter\\Highlighter' => __DIR__ . '/..' . '/jakub-onderka/php-console-highlighter/src/JakubOnderka/PhpConsoleHighlighter/Highlighter.php',
+        'Landish\\Pagination\\Materialize' => __DIR__ . '/..' . '/landish/pagination/src/Materialize.php',
+        'Landish\\Pagination\\Pagination' => __DIR__ . '/..' . '/landish/pagination/src/Pagination.php',
+        'Landish\\Pagination\\PaginationHTML' => __DIR__ . '/..' . '/landish/pagination/src/PaginationHTML.php',
+        'Landish\\Pagination\\SemanticUI' => __DIR__ . '/..' . '/landish/pagination/src/SemanticUI.php',
+        'Landish\\Pagination\\Simple\\Materialize' => __DIR__ . '/..' . '/landish/pagination/src/Simple/Materialize.php',
+        'Landish\\Pagination\\Simple\\Pagination' => __DIR__ . '/..' . '/landish/pagination/src/Simple/Pagination.php',
+        'Landish\\Pagination\\Simple\\SemanticUI' => __DIR__ . '/..' . '/landish/pagination/src/Simple/SemanticUI.php',
+        'Landish\\Pagination\\Simple\\UIKit' => __DIR__ . '/..' . '/landish/pagination/src/Simple/UIKit.php',
+        'Landish\\Pagination\\Simple\\ZurbFoundation' => __DIR__ . '/..' . '/landish/pagination/src/Simple/ZurbFoundation.php',
+        'Landish\\Pagination\\UIKit' => __DIR__ . '/..' . '/landish/pagination/src/UIKit.php',
+        'Landish\\Pagination\\ZurbFoundation' => __DIR__ . '/..' . '/landish/pagination/src/ZurbFoundation.php',
         'Laravel\\Tinker\\Console\\TinkerCommand' => __DIR__ . '/..' . '/laravel/tinker/src/Console/TinkerCommand.php',
         'Laravel\\Tinker\\TinkerCaster' => __DIR__ . '/..' . '/laravel/tinker/src/TinkerCaster.php',
         'Laravel\\Tinker\\TinkerServiceProvider' => __DIR__ . '/..' . '/laravel/tinker/src/TinkerServiceProvider.php',

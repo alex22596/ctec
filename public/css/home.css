@@ -24,6 +24,9 @@ ul{
     color: red;
 }
 
+.datos{
+
+}
 .centerImage{
     display: flex;
     justify-content: center; /* align horizontal */

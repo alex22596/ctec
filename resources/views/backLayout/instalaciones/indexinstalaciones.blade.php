@@ -25,12 +25,30 @@
             </form>
         </div>
     </div>
-    <div class="row">
+    <div class="row centerDiv">
         <div class="col s8">
-            Intalaciones
-        </div>
-        <div class="col s4">
-            mensaje
+            <h4>
+                Instalaciones
+            </h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th colspan="3">&nbsp;</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                    @foreach($instalaciones as $instalacion)
+                    <tr>
+                        <td>{{ $instalacion->id }}</td>
+                        <td>{{ $instalacion->nombre }}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+            {!! $instalaciones->links() !!}
         </div>
     </div>
 @endsection
