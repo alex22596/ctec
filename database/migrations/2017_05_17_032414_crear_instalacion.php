@@ -17,8 +17,6 @@ class CrearInstalacion extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('nombre', '30');
-            $table->string('administrador_nombre_usuario', '30');
-            $table->foreign('administrador_nombre_usuario')->references('nombre_usuario')->on('administrador');
             $table->timestamps();
         });
     }

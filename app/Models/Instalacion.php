@@ -7,11 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Instalacion extends Model
 {
     protected $table = "instalacion";
-    protected $fillable = ['nombre', 'administrador_nombre_usuario'];
+    protected $fillable = ['nombre'];
 
-    public function admnistrador(){
-        return $this->belongsTo(Administrador::Class);
-    }
     public function servicios(){
         return $this->hasMany(Servicio::Class);
     }

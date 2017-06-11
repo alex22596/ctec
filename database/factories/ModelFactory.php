@@ -22,3 +22,10 @@ $factory->define(CTEC\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(CTEC\Models\Instalacion::class, function (Faker\Generator $faker) {
+
+    return [
+        'nombre' => $faker->sentence(2),
+    ];
+});

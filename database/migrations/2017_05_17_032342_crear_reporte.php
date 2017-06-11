@@ -18,8 +18,6 @@ class CrearReporte extends Migration
             $table->increments('id');
             $table->string('datos', '1000');
             $table->dateTime('fecha');
-            $table->string('administrador_nombre_usuario', '30');
-            $table->foreign('administrador_nombre_usuario')->references('nombre_usuario')->on('administrador');
             $table->timestamps();
         });
     }
