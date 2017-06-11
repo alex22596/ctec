@@ -14,7 +14,6 @@ class CrearServicio extends Migration
     public function up()
     {
         Schema::create('servicio', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('nombre', '30');
             $table->integer('instalacion_id')->unsigned();

@@ -47,7 +47,7 @@
                     </tr>
                     @endforeach
                 </tbody>
-            </table>
+            </table>    
             {!! $instalaciones->links() !!}
         </div>
     </div>

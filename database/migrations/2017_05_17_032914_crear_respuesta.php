@@ -14,7 +14,6 @@ class CrearRespuesta extends Migration
     public function up()
     {
         Schema::create('respuesta', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('tipo', '30');
             $table->integer('pregunta_id')->unsigned();

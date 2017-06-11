@@ -14,7 +14,6 @@ class CrearEvaluacion extends Migration
     public function up()
     {
         Schema::create('evaluacion', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('nombre', '30');
             $table->integer('instalacion_id')->unsigned()->nullable();

@@ -14,7 +14,6 @@ class CrearPregunta extends Migration
     public function up()
     {
         Schema::create('pregunta', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
             $table->increments('id', true);
             $table->string('contenido', '100');
             $table->string('tipo', '30');

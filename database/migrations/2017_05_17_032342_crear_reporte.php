@@ -14,7 +14,6 @@ class CrearReporte extends Migration
     public function up()
     {
         Schema::create('reporte', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('datos', '1000');
             $table->dateTime('fecha');

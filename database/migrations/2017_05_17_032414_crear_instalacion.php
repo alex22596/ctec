@@ -14,7 +14,6 @@ class CrearInstalacion extends Migration
     public function up()
     {
         Schema::create('instalacion', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('nombre', '30');
             $table->timestamps();
