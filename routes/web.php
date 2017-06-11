@@ -10,12 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('iniciarSesion');
+Route::group(['middleware' => 'revalidate'],function(){
+    Route::get('/', function () {
+        return view('iniciarSesion');
+    });
+    Route::post('/login', 'AdministradorController@iniciarSesion')->name('login.post');
+    Route::resource('instalaciones', 'InstalacionController', ['middleware' => 'revalidate']);
 });
-
-Route::post('/login', 'AdministradorController@iniciarSesion')->name('login.post');
-Route::resource('instalaciones','InstalacionController');
-
-
