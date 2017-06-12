@@ -15,6 +15,7 @@ Route::group(['middleware' => 'revalidate'],function(){
         return view('iniciarSesion');
     });
     Route::post('/login', 'AdministradorController@iniciarSesion')->name('login.post');
+    Route::get("/instalaciones/serviciosseleccionados", "PruebaServicioController@prueba");
     Route::resource('instalaciones', 'InstalacionController');
     Route::resource('serviciosdefault','ServiciosDefaultController');
 });

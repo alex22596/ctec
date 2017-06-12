@@ -5,6 +5,10 @@ namespace CTEC\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use CTEC\Models\Instalacion;
+use CTEC\Models\ServiciosDefault;
+use CTEC\Http\Requests\InstalacionRequest;
+use Illuminate\View\View;
+use SebastianBergmann\Environment\Console;
 
 class InstalacionController extends Controller
 {
@@ -16,7 +20,8 @@ class InstalacionController extends Controller
     public function index()
     {
         $instalaciones = Instalacion::orderBy('id','DESC')->paginate(5);
-        return view('backLayout.instalaciones.indexinstalaciones', compact('instalaciones'));
+        $serviciosDefaults = ServiciosDefault::orderBy('id','DESC')->paginate();
+        return view('backLayout.instalaciones.indexinstalaciones', compact('serviciosDefaults','instalaciones'));
     }
 
     /**
@@ -24,20 +29,27 @@ class InstalacionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
-        //
+        return view('backLayout.instalaciones.indexinstalaciones');
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return bool|\Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(InstalacionRequest $request)
     {
-        //
+        $nuevaInstalacion = new Instalacion();
+        $nuevaInstalacion->nombre = $request->nombre;
+        //foreach ($request->servicios as $servicio){
+        //        return $servicio;
+      //  }
+        $nuevaInstalacion->save();
+        return redirect()->back()->with('info','La instalación fue Creada');
     }
 
     /**
@@ -67,11 +79,13 @@ class InstalacionController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response|string
      */
     public function update(Request $request, $id)
     {
-        //
+        if($request->ajax()) {
+            return "OK";
+        }
     }
 
     /**
@@ -82,6 +96,8 @@ class InstalacionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $Instalacion = Instalacion::find($id);
+        $Instalacion->delete();
+        return back()->with('info','La instalacion fue eliminada');
     }
 }

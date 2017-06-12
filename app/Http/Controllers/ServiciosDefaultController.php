@@ -4,7 +4,7 @@ namespace CTEC\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use CTEC\ServiciosDefault;
+use CTEC\Models\ServiciosDefault;
 
 class ServiciosDefaultController extends Controller
 {
@@ -15,7 +15,8 @@ class ServiciosDefaultController extends Controller
      */
     public function index()
     {
-        //
+        $serviciosDefaults = ServiciosDefault::orderBy('id','DESC');
+        return view('backLayout.instalaciones.indexinstalaciones', compact('serviciosDefaults'));
     }
 
     /**
