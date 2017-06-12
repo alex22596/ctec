@@ -10,24 +10,18 @@ use Illuminate\Routing\Controller;
 class PruebaServicioController extends Controller
 {
     public function prueba(Request $request){
-        $serviciosSeleccionados  = response()->json($request);
+        $serviciosSeleccionados  = $request['serviciosSeleccionados'];
         $id = self::getLast()->id;
-        foreach ($serviciosSeleccionados as $key => $val){
-           foreach ($val as $element){
-               return response()->json(["ja" => $element]);
-           }
-        }
-        //$arrayServicios = $serviciosSeleccionados[0];
-        /*
-        foreach ($arrayServicios as $servicio){
+
+        foreach ($serviciosSeleccionados as $servicio){
             $newServicio = new Servicio();
             $newServicio->nombre = $servicio;
             $newServicio->instalacion_id = $id;
             $newServicio->save();
         }
-        */
 
         return $serviciosSeleccionados;
+
     }
 
     public function getLast(){

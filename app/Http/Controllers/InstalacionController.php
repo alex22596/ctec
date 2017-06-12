@@ -45,11 +45,13 @@ class InstalacionController extends Controller
     {
         $nuevaInstalacion = new Instalacion();
         $nuevaInstalacion->nombre = $request->nombre;
-        //foreach ($request->servicios as $servicio){
-        //        return $servicio;
-      //  }
         $nuevaInstalacion->save();
+
         return redirect()->back()->with('info','La instalación fue Creada');
+    }
+
+    public function getLast(){
+        return Instalacion::orderBy('id','DESC')->first();
     }
 
     /**
@@ -83,9 +85,7 @@ class InstalacionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if($request->ajax()) {
-            return "OK";
-        }
+
     }
 
     /**

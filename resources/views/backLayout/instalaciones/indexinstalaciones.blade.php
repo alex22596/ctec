@@ -30,9 +30,8 @@
                         type: "GET",
                         dataType: "json",
                         url: "instalaciones/serviciosseleccionados",
-                        data: {serviciosSeleccionados: serviciosSeleccionados},
+                        data: {'serviciosSeleccionados': serviciosSeleccionados},
                         success: function (e) {
-                            console.log(serviciosSeleccionados);
                             console.log(e);
                         }
                     });
