@@ -14,8 +14,8 @@ class VerifyCsrfToken extends BaseVerifier
     protected $except = [
         "instalaciones/serviciosseleccionados",
         "cuestionarios/agregarcuestionario",
-        "/preguntas/agregarpregunta",
-        "/preguntas/agregarpreguntadefault",
+        "preguntas/agregarpregunta",
+        "preguntas/agregarpreguntadefault",
 
     ];
 }
