@@ -32,4 +32,14 @@ class RequestController extends Controller
     public function getLast(){
         return Instalacion::orderBy('id','DESC')->first();
     }
+
+    public function cuestionarios(Request $request){
+
+    }
+    public function preguntas(Request $request){
+
+    }
+    public function preguntasdefault(Request $request){
+
+    }
 }
