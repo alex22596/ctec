@@ -7,9 +7,9 @@ use CTEC\Models\Servicio;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
-class PruebaServicioController extends Controller
+class RequestController extends Controller
 {
-    public function prueba(Request $request){
+    public function instalaciones(Request $request){
         $serviciosSeleccionados  = $request['serviciosSeleccionados'];
         $nombreInstalacion = $request['nombreInstalaciones'];
 
@@ -25,7 +25,7 @@ class PruebaServicioController extends Controller
             $newServicio->save();
         }
 
-        return redirect()->back();
+        return redirect()->back()->with('info','La instalacion fue creada');
 
     }
 
