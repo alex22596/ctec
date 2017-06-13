@@ -44,9 +44,6 @@ class InstalacionController extends Controller
      */
     public function store(InstalacionRequest $request)
     {
-        $nuevaInstalacion = new Instalacion();
-        $nuevaInstalacion->nombre = $request->nombre;
-        $nuevaInstalacion->save();
 
         return redirect()->back()->with('info','La instalación fue Creada');
     }

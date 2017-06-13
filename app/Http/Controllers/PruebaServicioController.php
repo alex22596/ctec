@@ -11,6 +11,11 @@ class PruebaServicioController extends Controller
 {
     public function prueba(Request $request){
         $serviciosSeleccionados  = $request['serviciosSeleccionados'];
+        $nombreInstalacion = $request['nombreInstalaciones'];
+
+        $nuevaInstalacion = new Instalacion();
+        $nuevaInstalacion->nombre = $nombreInstalacion;
+        $nuevaInstalacion->save();
         $id = self::getLast()->id;
 
         foreach ($serviciosSeleccionados as $servicio){
@@ -20,7 +25,7 @@ class PruebaServicioController extends Controller
             $newServicio->save();
         }
 
-        return $serviciosSeleccionados;
+        return view('backLayout.instalaciones.indexinstalaciones')->with('info','La instalación fue Creada');;
 
     }
 

@@ -3,8 +3,7 @@
 @section('contenido')
     <div class="centerDiv center-align">
         <div class="valign">
-            <form id="serviciosForm" action="{{ route('instalaciones.store') }}" method="post" enctype="multipart/form-data">
-                {{ csrf_field() }}
+            <form id="serviciosForm">
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="nombreInstalacion" name="nombre" type="text" class="validate">
@@ -26,13 +25,13 @@
             <script>
                 $("#serviciosForm").submit(function () {
                     var serviciosSeleccionados = $('#servicios').val();
+                    var instalacionNombre = $('#nombreInstalacion').val()
                     $.ajax({
                         type: "GET",
                         dataType: "json",
                         url: "instalaciones/serviciosseleccionados",
-                        data: {'serviciosSeleccionados': serviciosSeleccionados},
-                        success: function (e) {
-                            console.log(e);
+                        data: {'serviciosSeleccionados': serviciosSeleccionados, 'nombreInstalaciones':instalacionNombre},
+                        success: function () {
                         }
                     });
                 });
