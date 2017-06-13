@@ -3,14 +3,15 @@
 @section('contenido')
     <div class="centerDiv center-align">
         <div class="valign">
-            <form action="">
+            <form id="preguntasForm" method="post">
+                <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="contenidoPregunta" type="text" class="validate">
                         <label for="contenidoPregunta">Ingrese el Contenido de la Pregunta</label>
                     </div>
                     <div class="input-field col s12">
-                        <select>
+                        <select id="tipoPregunta">
                             <option value="" disabled selected>Seleccione una Opción</option>
                             <option value="1">Selección Única</option>
                             <option value="2">Selección Múltiple</option>
@@ -23,110 +24,27 @@
                     <i class="material-icons right">send</i>
                 </button>
             </form>
-        </div>
-    </div>
-    <!--Instalaciones con sus servicios actuales-->
-    <div class="centerDiv">
-        <div class="">
-            <div class="row valign-wrapper">
-                <div class="col m4 s12">
-                    <h5 class="mobileTitleView">Califique la Calidad del Aire Acondicionado</h5>
-                </div>
-                <div class="col m4 s3 push-s1">
-                    <i class="material-icons">edit_mode</i>
-                </div>
-                <div class="col m4 push-s2">
-                    <i class="material-icons">delete</i>
-                </div>
-            </div>
-            <div class="tabServices">
-                <div class="row">
-                    <div class="col m4">
-                        <h6>Excelente</h6>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col m4">
-                        <h6>Muy Bueno</h6>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col m4">
-                        <h6>Regular</h6>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col m4">
-                        <h6>Deficiente</h6>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row valign-wrapper">
-            <div class="col m4 s12">
-                <h5 class="mobileTitleView">Califique la Limpieza de la Instalación</h5>
-            </div>
-            <div class="col m4 s3 push-s1">
-                <i class="material-icons">edit_mode</i>
-            </div>
-            <div class="col m4 push-s2">
-                <i class="material-icons">delete</i>
-            </div>
-        </div>
-        <div class="tabServices">
-            <div class="row">
-                <div class="col m4">
-                    <h6>Excelente</h6>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col m4">
-                    <h6>Muy Bueno</h6>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col m4">
-                    <h6>Regular</h6>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col m4">
-                    <h6>Deficiente</h6>
-                </div>
-            </div>
-        </div>
-        <div class="row valign-wrapper">
-            <div class="col m4 s12">
-                <h5 class="mobileTitleView">Califique la Calidad del Wifi</h5>
-            </div>
-            <div class="col m4 s3 push-s1">
-                <i class="material-icons">edit_mode</i>
-            </div>
-            <div class="col m4 push-s2">
-                <i class="material-icons">delete</i>
-            </div>
-        </div>
-        <div class="tabServices">
-            <div class="row">
-                <div class="col m4">
-                    <h6>Excelente</h6>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col m4">
-                    <h6>Muy Bueno</h6>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col m4">
-                    <h6>Regular</h6>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col m4">
-                    <h6>Deficiente</h6>
-                </div>
-            </div>
+            <script>
+                $("#preguntasForm").submit(function () {
+                    var contenidoPregunta = $('#contenidoPregunta').val();
+                    var tipoPregunta = $('#tipoPregunta').val();
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+                    $.ajax({
+                        type: "POST",
+                        dataType: "json",
+                        params: {_token:token},
+                        url: "/preguntas/agregarpreguntadefault",
+                        data: {'contenidoPregunta': contenidoPregunta, 'tipoPregunta':tipoPregunta},
+                        success: function () {
+                            console.log("OK");
+                        }
+                    });
+                });
+            </script>
         </div>
     </div>
 @endsection
