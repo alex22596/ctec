@@ -7,6 +7,7 @@ use Illuminate\Routing\Controller;
 use CTEC\Models\Instalacion;
 use CTEC\Models\ServiciosDefault;
 use CTEC\Http\Requests\InstalacionRequest;
+use CTEC\Models\Servicio;
 use Illuminate\View\View;
 use SebastianBergmann\Environment\Console;
 
@@ -19,7 +20,7 @@ class InstalacionController extends Controller
      */
     public function index()
     {
-        $instalaciones = Instalacion::orderBy('id','DESC')->paginate(5);
+        $instalaciones = Instalacion::orderBy('id','DESC')->paginate(3);
         $serviciosDefaults = ServiciosDefault::orderBy('id','DESC')->paginate();
         return view('backLayout.instalaciones.indexinstalaciones', compact('serviciosDefaults','instalaciones'));
     }
@@ -48,10 +49,6 @@ class InstalacionController extends Controller
         $nuevaInstalacion->save();
 
         return redirect()->back()->with('info','La instalación fue Creada');
-    }
-
-    public function getLast(){
-        return Instalacion::orderBy('id','DESC')->first();
     }
 
     /**

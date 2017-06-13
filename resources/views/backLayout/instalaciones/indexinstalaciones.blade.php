@@ -48,7 +48,6 @@
             <table>
                 <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Nombre</th>
                     <th colspan="3">&nbsp;</th>
 
@@ -57,7 +56,6 @@
                 <tbody>
                     @foreach($instalaciones as $instalacion)
                     <tr>
-                        <td>{{ $instalacion->id }}</td>
                         <td>{{ $instalacion->nombre }}</td>
                         <td>
                             <form action="{{ route('instalaciones.destroy', $instalacion->id) }}" method="POST">
@@ -66,10 +64,32 @@
                                 <button class="waves-effect waves-light btn">Eliminar</button>
                             </form>
                         </td>
+
+                    </tr>
+                    <tr>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Nombre servicio</th>
+                                <th colspan="3">&nbsp;</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($instalacion->servicios as $servicio)
+                                <tr>
+                                    @if($instalacion->id == $servicio->instalacion_id)
+                                        <td>{{ $servicio->nombre }}</td>
+                                    @endif
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
+
             {!! $instalaciones->links() !!}
         </div>
     </div>

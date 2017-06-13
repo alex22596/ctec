@@ -17,7 +17,7 @@ class CrearServicio extends Migration
             $table->increments('id');
             $table->string('nombre', '30');
             $table->integer('instalacion_id')->unsigned();
-            $table->foreign('instalacion_id')->references('id')->on('instalacion');
+            $table->foreign('instalacion_id')->references('id')->on('instalacion')->onDelete('cascade');
             $table->timestamps();
         });
     }
