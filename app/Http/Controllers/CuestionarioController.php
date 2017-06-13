@@ -4,6 +4,7 @@ namespace CTEC\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use CTEC\Models\Instalacion;
 
 class CuestionarioController extends Controller
 {
@@ -14,7 +15,15 @@ class CuestionarioController extends Controller
      */
     public function index()
     {
+        $instalaciones = Instalacion::orderBy('id','DESC');
+
+
         return view("backLayout.cuestionarios.indexcuestionarios");
+        /*
+        $instalaciones = Instalacion::orderBy('id','DESC')->paginate(3);
+        $serviciosDefaults = ServiciosDefault::orderBy('id','DESC')->paginate();
+        return view('backLayout.instalaciones.indexinstalaciones', compact('serviciosDefaults','instalaciones'));
+        */
     }
 
     /**

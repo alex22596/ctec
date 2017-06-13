@@ -1,26 +1,26 @@
 @extends('layout')
 
 @section('contenido')
-    <div class="centerDiv center-align">
+    <div class="centerDiv center-align paddingTop">
         <div class="valign">
-            <form action="">
+            <form id="agregarCuestionario" method="post">
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="nombreCuestionario" name="nombre" type="text" class="validate">
-                        <label for="nombreCuestionario" class="" >Ingrese el Nombre del Cuestionario</label>
+                        <label for="nombreCuestionario" class="black-text" >Ingrese el Nombre del Cuestionario</label>
                     </div>
                     <div class="input-field col s12">
-                        <select>
+                        <select id="instalacion">
                             <option value="" disabled selected>Seleccione instalación</option>
-                            <option value="1">Instalación 1</option>
+                            <option value="1 poner id">Instalación 1</option>
                             <option value="2">Instalación 2</option>
                             <option value="3">Instalación 3</option>
                         </select>
                     </div>
                     <div class="input-field col s12">
-                        <select multiple>
+                        <select id="preguntas" multiple>
                             <option value="" disabled selected>Seleccione la/s preguntas</option>
-                            <option value="1">Pregunta 1</option>
+                            <option value="1poner  id">Pregunta 1</option>
                             <option value="2">Pregunta 2</option>
                             <option value="3">Pregunta 3</option>
                         </select>
@@ -32,6 +32,30 @@
             </form>
         </div>
     </div>
+    <script>
+        $("#agregarCuestionario").submit(function () {
+            var nombreCuestionario = $('#nombreCuestionario').val();
+            var instalacion = $('#instalacion option:selected').val();
+            var preguntas = $('#preguntas').val();
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                params: {_token:token},
+                url: "instalaciones/serviciosseleccionados",
+                data: {'nombreCuestionario': nombreCuestionario, 'instalacion':instalacion,'preguntas':preguntas},
+                success: function () {
+                    console.log("OK");
+                }
+            });
+        });
+    </script>
+
     <div class="centerDiv">
         <div class="">
             <div class="row valign-wrapper">
@@ -49,41 +73,6 @@
                 <div class="row">
                     <div class="col m4">
                         <h6 class="boldText">Jacaranda</h6>
-                    </div>
-                </div>
-                <div class="row marginTab2">
-                    <div class="col m4 ">
-                        <h6>Califique la Calidad del Aire Acondicionado</h6>
-                    </div>
-                </div>
-                <div class="row marginTab2">
-                    <div class="col m4 ">
-                        <h6>Califique la Limpieza de la Instalación</h6>
-                    </div>
-                </div>
-                <div class="row marginTab2">
-                    <div class="col m4 ">
-                        <h6>Califique la Calidad del Wifi</h6>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="">
-            <div class="row valign-wrapper">
-                <div class="col m4 s12">
-                    <h5 class="mobileTitleView">Cuestionario 2</h5>
-                </div>
-                <div class="col m4 s3 push-s1">
-                    <i class="material-icons">edit_mode</i>
-                </div>
-                <div class="col m4 push-s2">
-                    <i class="material-icons">delete</i>
-                </div>
-            </div>
-            <div class="tabServices">
-                <div class="row">
-                    <div class="col m4">
-                        <h6 class="boldText">Bromelia</h6>
                     </div>
                 </div>
                 <div class="row marginTab2">
