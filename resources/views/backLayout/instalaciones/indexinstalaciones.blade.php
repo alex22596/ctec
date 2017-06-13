@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('contenido')
-    <div class="centerDiv center-align">
+    <div class="centerDiv center-align paddingTop">
         <div class="valign">
             <form id="serviciosForm" method="post">
                 <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
@@ -40,65 +40,54 @@
                         data: {'serviciosSeleccionados': serviciosSeleccionados, 'nombreInstalaciones':instalacionNombre},
                         success: function () {
                             console.log("OK");
-                            //Materialize.toast("OK", 2000);
                         }
                     });
                 });
             </script>
         </div>
     </div>
-    <div class="row centerDiv">
-        <div class="col s8">
+    <div class="row centerDiv paddingTop">
+        <div class="col s8 m12">
             <h4>
                 Instalaciones
             </h4>
             @include('backLayout.instalaciones.fragmento.info')
-            <table>
-                <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th colspan="3">&nbsp;</th>
-
-                </tr>
-                </thead>
-                <tbody>
-                    @foreach($instalaciones as $instalacion)
-                    <tr>
-                        <td>{{ $instalacion->nombre }}</td>
-                        <td>
-                            <form action="{{ route('instalaciones.destroy', $instalacion->id) }}" method="POST">
-                                {{ csrf_field() }}
-                                <input type="hidden" name="_method" value="DELETE">
-                                <button class="waves-effect waves-light btn">Eliminar</button>
-                            </form>
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <table>
-                            <thead>
+            @foreach($instalaciones as $instalacion)
+                <table class="marginTop">
+                    <tbody>
                             <tr>
-                                <th>Nombre servicio</th>
-                                <th colspan="3">&nbsp;</th>
-
+                                <td><i class="flow-text">{{ $instalacion->nombre }}</i></td>
+                                <td class="right-align">
+                                    <form action="{{ route('instalaciones.destroy', $instalacion->id) }}" method="POST">
+                                        {{ csrf_field() }}
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <button class="waves-effect waves-light btn red material-icons">delete</button>
+                                    </form>
+                                </td>
                             </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($instalacion->servicios as $servicio)
-                                <tr>
-                                    @if($instalacion->id == $servicio->instalacion_id)
-                                        <td>{{ $servicio->nombre }}</td>
-                                    @endif
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
+                    </tbody>
+                </table>
+                <table class="centerDiv">
+                    <thead>
+                    <tr>
+                        <th>Servicios</th>
+                        <th colspan="3">&nbsp;</th>
                     </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($instalacion->servicios as $servicio)
+                        <tr>
+                            @if($instalacion->id == $servicio->instalacion_id)
+                                <td>{{ $servicio->nombre }}</td>
+                            @endif
+                        </tr>
                     @endforeach
-                </tbody>
-            </table>
-
-            {!! $instalaciones->links() !!}
+                    </tbody>
+                </table>
+            @endforeach
+           <div class="paddingTop left-align">
+                   {!! $instalaciones->links() !!}
+           </div>
         </div>
     </div>
 @endsection

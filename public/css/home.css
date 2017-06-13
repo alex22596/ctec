@@ -2,17 +2,21 @@ html, body{
     max-width: 100%;
     width: auto;
 }
+
 @media only screen and (max-width : 992px) {
     header, main, footer {
     padding-left: 0;
   }
 }
+
 .marginBottomProfile{
     margin-bottom: 10%;
 }
+
 .marginDivider{
     margin-bottom: 1em;
 }
+
 img {
     display: block;
     max-width:200px;
@@ -20,27 +24,33 @@ img {
     width: auto;
     height: auto;
 }
+
 ul{
     color: red;
 }
 
-.datos{
-
-}
 .centerImage{
     display: flex;
     justify-content: center; /* align horizontal */
 }
+.marginTop{
+    margin-top: 2vh;
+}
 
-.centerDiv {
+.paddingTop{
+    padding-top: 3%;
+}
+
+.centerDiv{
     width:70%;
     margin:0 auto;
     position: relative;
-    top: 3em;
 }
+
 .data{
     margin-top: 2em;
 }
+
 .tabServices{
     position: relative;
     left: 4em;
@@ -59,15 +69,18 @@ ul{
     font-weight: bold;
     font-size: 1.2em;
 }
+
 @media only screen and (min-device-width: 100px) and (max-device-width: 1024px){
     .centerDiv {
         margin: auto;
         width: 60%;
     }
 }
+
 header, main, footer{
     padding-left: 300px;
 }
+
 @media only screen and (max-width : 992px) {
     header, main, footer {
         padding-left: 0;
