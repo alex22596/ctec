@@ -32,7 +32,7 @@
         </li>
         <li class="marginDivider"><div class="divider"></div></li>
         <li><a class="waves-effect white-text" href="{{ url('instalaciones') }}">Gestión de Instalaciones</a></li>
-        <li><a class="waves-effect white-text" href="{{ url('preguntas') }}">Gestión de Preguntas</a></li>
+        <li><a class="waves-effect white-text" href="{{ route('preguntas.index') }}">Gestión de Preguntas</a></li>
 
         <li class="no-padding">
             <ul class="collapsible collapsible-accordion">

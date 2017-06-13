@@ -42,16 +42,4 @@ class RequestController extends Controller
     public function preguntas(Request $request){
 
     }
-
-    public function preguntasdefault(Request $request){
-        $contenidoPregunta  = $request['contenidoPregunta'];
-        $tipoPregunta = $request['tipoPregunta'];
-
-        $nuevaPreguntaDefault = new PreguntasDefault();
-        $nuevaPreguntaDefault->contenido = $contenidoPregunta;
-        $nuevaPreguntaDefault->tipo = $tipoPregunta;
-        $nuevaInstalacion->save();
-
-        return redirect()->back()->with('info','La instalacion fue creada');
-    }
 }

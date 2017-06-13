@@ -2,6 +2,7 @@
 
 namespace CTEC\Http\Controllers;
 
+use CTEC\Models\PreguntasDefault;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
@@ -14,7 +15,9 @@ class PreguntasDefaultController extends Controller
      */
     public function index()
     {
-        return view('backLayout.preguntas.indexpreguntas');
+        $preguntas = PreguntasDefault::orderBy('id','DESC')->paginate(3);
+        //$serviciosDefaults = ServiciosDefault::orderBy('id','DESC')->paginate();
+        return view('backLayout.preguntas.indexpreguntas', compact('preguntas'));
     }
 
     /**
@@ -33,9 +36,22 @@ class PreguntasDefaultController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    public function preguntasdefault(Request $request){
+        $contenidoPregunta  = $request['contenidoPregunta'];
+        $tipoPregunta = $request['tipoPregunta'];
+
+        $nuevaPreguntaDefault = new PreguntasDefault();
+        $nuevaPreguntaDefault->contenido = $contenidoPregunta;
+        $nuevaPreguntaDefault->tipo = $tipoPregunta;
+        $nuevaPreguntaDefault->save();
+
+        return response()->json(["mensaje" => "OK"]);
+    }
+
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -80,6 +96,8 @@ class PreguntasDefaultController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pregunta = PreguntasDefault::find($id);
+        $pregunta->delete();
+        return back()->with('info','La instalacion fue eliminada');
     }
 }
