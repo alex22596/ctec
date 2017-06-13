@@ -57,7 +57,7 @@ class RequestController extends Controller
             $nuevaPregunta->evaluacion_id = $id;
             $nuevaPregunta->save();
         }
-        return redirect()->action('');
+        return;
     }
 
     public function getLastEvaluacion(){
@@ -86,6 +86,6 @@ class RequestController extends Controller
         $nuevaPreguntaDefault->tipo = $tipoPregunta;
         $nuevaPreguntaDefault->save();
 
-        return redirect()->back()->with('info','La pregunta fue creada');
+        return redirect()->back();
     }
 }

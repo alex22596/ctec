@@ -16,26 +16,6 @@ Route::group(['middleware' => 'revalidate'],function(){
         return view('iniciarSesion');
     });
 
-    Route::get('/preguntas', function () {
-        return view('backLayout.preguntas.indexpreguntas');
-    });
-
-    Route::get('/instalaciones', function () {
-        return view('backLayout.instalaciones.indexinstalaciones');
-    });
-
-    Route::get('/cuestionarios', function () {
-        return view('backLayout.cuestionarios.indexcuestionarios');
-    });
-
-    Route::get('/enviarcuestionario', function () {
-        return view("");
-    });
-
-    Route::get('/reportes', function () {
-        return view("");
-    });
-
     Route::post('/login', 'AdministradorController@iniciarSesion')->name('login.post');
     Route::post('/instalaciones/serviciosseleccionados', 'RequestController@instalaciones');
     Route::post('/cuestionarios/agregarcuestionario','RequestController@cuestionarios');
@@ -45,7 +25,7 @@ Route::group(['middleware' => 'revalidate'],function(){
 
     Route::resource('instalaciones', 'InstalacionController');
     Route::resource('serviciosdefault','ServiciosDefaultController');
-    Route::resource('preguntasdefault','PreguntasDefaultController');
+    Route::resource('preguntas','PreguntasDefaultController');
     Route::resource('cuestionarios','CuestionarioController');
 
 });

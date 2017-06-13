@@ -59,40 +59,48 @@
         });
     </script>
 
-    <div class="centerDiv">
-        <div class="">
-            <div class="row valign-wrapper">
-                <div class="col m4 s12">
-                    <h5 class="mobileTitleView">Cuestionario 1</h5>
-                </div>
-                <div class="col m4 s3 push-s1">
-                    <i class="material-icons">edit_mode</i>
-                </div>
-                <div class="col m4 push-s2">
-                    <i class="material-icons">delete</i>
-                </div>
-            </div>
-            <div class="tabServices">
-                <div class="row">
-                    <div class="col m4">
-                        <h6 class="boldText">Jacaranda</h6>
-                    </div>
-                </div>
-                <div class="row marginTab2">
-                    <div class="col m4 ">
-                        <h6>Califique la Calidad del Aire Acondicionado</h6>
-                    </div>
-                </div>
-                <div class="row marginTab2">
-                    <div class="col m4 ">
-                        <h6>Califique la Limpieza de la Instalación</h6>
-                    </div>
-                </div>
-                <div class="row marginTab2">
-                    <div class="col m4 ">
-                        <h6>Califique la Calidad del Wifi</h6>
-                    </div>
-                </div>
+    <div class="row centerDiv paddingTop">
+        <div class="col s8 m12">
+            <h4>
+                Cuestionarios
+            </h4>
+            @include('backLayout.instalaciones.fragmento.info')
+            @foreach($evaluaciones as $evaluacion)
+                <td><i class="flow-text">{{ $evaluacion->nombre }}</i></td>
+                <table class="marginTop">
+                    <tbody>
+                    <tr>
+                        <td>{{ $evaluacion->Instalacion->nombre }}</td>
+                        <td class="right-align">
+                            <form action="{{ route('cuestionarios.destroy', $evaluacion->id) }}" method="POST">
+                                {{ csrf_field() }}
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button class="waves-effect waves-light btn red material-icons">delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="centerDiv">
+                    <thead>
+                    <tr>
+                        <th>Preguntas</th>
+                        <th colspan="3">&nbsp;</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($evaluacion->preguntas as $pregunta)
+                        <tr>
+                            @if($evaluacion->id == $pregunta->evaluacion_id)
+                                <td>{{ $pregunta->contenido }}</td>
+                            @endif
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            @endforeach
+            <div class="paddingTop left-align">
+                {!! $instalaciones->links() !!}
             </div>
         </div>
     </div>

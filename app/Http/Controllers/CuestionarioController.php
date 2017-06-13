@@ -2,6 +2,7 @@
 
 namespace CTEC\Http\Controllers;
 
+use CTEC\Models\Evaluacion;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use CTEC\Models\Instalacion;
@@ -18,8 +19,9 @@ class CuestionarioController extends Controller
     {
         $instalaciones = Instalacion::orderBy('id','DESC')->paginate(200);
         $preguntasDefault = PreguntasDefault::orderBy('id','DESC')->paginate(200);
+        $evaluaciones = Evaluacion::orderBy('id','DESC')->paginate(3);
 
-        return view("backLayout.cuestionarios.indexcuestionarios",compact('instalaciones','preguntasDefault'));
+        return view("backLayout.cuestionarios.indexcuestionarios",compact('instalaciones','preguntasDefault','evaluaciones'));
         /*
         $instalaciones = Instalacion::orderBy('id','DESC')->paginate(3);
         $serviciosDefaults = ServiciosDefault::orderBy('id','DESC')->paginate();
@@ -90,6 +92,8 @@ class CuestionarioController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $evaluacion = Evaluacion::find($id);
+        $evaluacion->delete();
+        return back()->with('info','La instalacion fue eliminada');
     }
 }
