@@ -4,6 +4,7 @@
     <div class="centerDiv center-align paddingTop">
         <div class="valign">
             <form id="agregarCuestionario" method="post">
+                <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="nombreCuestionario" name="nombre" type="text" class="validate">
@@ -12,17 +13,17 @@
                     <div class="input-field col s12">
                         <select id="instalacion">
                             <option value="" disabled selected>Seleccione instalación</option>
-                            <option value="1 poner id">Instalación 1</option>
-                            <option value="2">Instalación 2</option>
-                            <option value="3">Instalación 3</option>
+                            @foreach($instalaciones as $instalacion)
+                                <option name="instalacion[]" value={{ $instalacion->id }}>{{ $instalacion->nombre }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="input-field col s12">
-                        <select id="preguntas" multiple>
+                        <select id="preguntasdefault" multiple>
                             <option value="" disabled selected>Seleccione la/s preguntas</option>
-                            <option value="1poner  id">Pregunta 1</option>
-                            <option value="2">Pregunta 2</option>
-                            <option value="3">Pregunta 3</option>
+                            @foreach($preguntasDefault as $preguntaDefault)
+                                <option name="preguntasdefault[]" value={{ $preguntaDefault->id }}>{{ $preguntaDefault->contenido }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -36,7 +37,7 @@
         $("#agregarCuestionario").submit(function () {
             var nombreCuestionario = $('#nombreCuestionario').val();
             var instalacion = $('#instalacion option:selected').val();
-            var preguntas = $('#preguntas').val();
+            var preguntas = $('#preguntasdefault').val();
 
             $.ajaxSetup({
                 headers: {
@@ -47,9 +48,11 @@
                 type: "POST",
                 dataType: "json",
                 params: {_token:token},
-                url: "instalaciones/serviciosseleccionados",
+                url: "cuestionarios/agregarcuestionario",
                 data: {'nombreCuestionario': nombreCuestionario, 'instalacion':instalacion,'preguntas':preguntas},
-                success: function () {
+                success: function (e) {
+                    alert(preguntas);
+                    console.log(e);
                     console.log("OK");
                 }
             });
