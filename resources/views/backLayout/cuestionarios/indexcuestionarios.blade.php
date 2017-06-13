@@ -6,22 +6,24 @@
             <form action="">
                 <div class="row">
                     <div class="input-field col s12">
+                        <input id="nombreCuestionario" name="nombre" type="text" class="validate">
+                        <label for="nombreCuestionario" class="" >Ingrese el Nombre del Cuestionario</label>
+                    </div>
+                    <div class="input-field col s12">
                         <select>
-                            <option value="" disabled selected>Seleccione una Opción</option>
+                            <option value="" disabled selected>Seleccione instalación</option>
                             <option value="1">Instalación 1</option>
                             <option value="2">Instalación 2</option>
                             <option value="3">Instalación 3</option>
                         </select>
-                        <label>Escoja la Instalación</label>
                     </div>
                     <div class="input-field col s12">
                         <select multiple>
-                            <option value="" disabled selected>Puede Elegir Múltiples Opciones</option>
+                            <option value="" disabled selected>Seleccione la/s preguntas</option>
                             <option value="1">Pregunta 1</option>
                             <option value="2">Pregunta 2</option>
                             <option value="3">Pregunta 3</option>
                         </select>
-                        <label>Seleccione la/s Preguntas</label>
                     </div>
                 </div>
                 <button class="btn waves-effect waves-light light-blue marginButton" type="submit" name="action">Agregar Cuestionario

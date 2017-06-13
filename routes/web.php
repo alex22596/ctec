@@ -40,7 +40,7 @@ Route::group(['middleware' => 'revalidate'],function(){
     Route::post('/instalaciones/serviciosseleccionados', 'RequestController@instalaciones');
     Route::post('/cuestionarios/agregarcuestionario','RequestController@cuestionarios');
     Route::post('/preguntas/agregarpregunta','RequestController@preguntas');
-    Route::post('/preguntas/agregarpregunta','RequestController@preguntasdefault');
+    Route::post('/preguntas/agregarpreguntadefault','RequestController@preguntasdefault');
 
 
     Route::resource('instalaciones', 'InstalacionController');
