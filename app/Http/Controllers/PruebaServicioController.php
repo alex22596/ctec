@@ -25,7 +25,7 @@ class PruebaServicioController extends Controller
             $newServicio->save();
         }
 
-        return view('backLayout.instalaciones.indexinstalaciones')->with('info','La instalación fue Creada');;
+        return redirect()->back();
 
     }
 

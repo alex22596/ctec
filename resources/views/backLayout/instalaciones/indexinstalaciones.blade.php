@@ -3,7 +3,8 @@
 @section('contenido')
     <div class="centerDiv center-align">
         <div class="valign">
-            <form id="serviciosForm">
+            <form id="serviciosForm" method="post">
+                <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="nombreInstalacion" name="nombre" type="text" class="validate">
@@ -25,13 +26,21 @@
             <script>
                 $("#serviciosForm").submit(function () {
                     var serviciosSeleccionados = $('#servicios').val();
-                    var instalacionNombre = $('#nombreInstalacion').val()
+                    var instalacionNombre = $('#nombreInstalacion').val();
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
                     $.ajax({
-                        type: "GET",
+                        type: "POST",
                         dataType: "json",
+                        params: {_token:token},
                         url: "instalaciones/serviciosseleccionados",
                         data: {'serviciosSeleccionados': serviciosSeleccionados, 'nombreInstalaciones':instalacionNombre},
                         success: function () {
+                            console.log("OK");
+                            //Materialize.toast("OK", 2000);
                         }
                     });
                 });
