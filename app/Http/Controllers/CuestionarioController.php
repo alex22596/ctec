@@ -5,7 +5,7 @@ namespace CTEC\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
-class PreguntasDefaultController extends Controller
+class CuestionarioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class PreguntasDefaultController extends Controller
      */
     public function index()
     {
-        return view('backLayout.preguntas.indexpreguntas');
+        return view("backLayout.cuestionarios.indexcuestionarios");
     }
 
     /**

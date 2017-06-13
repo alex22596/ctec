@@ -288,6 +288,7 @@ class ComposerStaticInit3f853c8b58339abbef244c665eff11ad
         'CTEC\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'CTEC\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'CTEC\\Http\\Controllers\\InstalacionController' => __DIR__ . '/../..' . '/app/Http/Controllers/InstalacionController.php',
+        'CTEC\\Http\\Controllers\\PreguntasDefaultController' => __DIR__ . '/../..' . '/app/Http/Controllers/PreguntasDefaultController.php',
         'CTEC\\Http\\Controllers\\RequestController' => __DIR__ . '/../..' . '/app/Http/Controllers/RequestController.php',
         'CTEC\\Http\\Controllers\\ServiciosDefaultController' => __DIR__ . '/../..' . '/app/Http/Controllers/ServiciosDefaultController.php',
         'CTEC\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',

@@ -31,8 +31,8 @@
             <h5 class="white-text name center-align marginDivider">Admin</h5>
         </li>
         <li class="marginDivider"><div class="divider"></div></li>
-        <li><a class="waves-effect white-text" href="instalaciones.php">Gestión de Instalaciones</a></li>
-        <li><a class="waves-effect white-text" href="preguntas.php">Gestión de Preguntas</a></li>
+        <li><a class="waves-effect white-text" href="{{ url('instalaciones') }}">Gestión de Instalaciones</a></li>
+        <li><a class="waves-effect white-text" href="{{ url('preguntas') }}">Gestión de Preguntas</a></li>
 
         <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
@@ -40,14 +40,14 @@
                     <a class="collapsible-header white-text">Cuestionarios<i class="material-icons white-text">arrow_drop_down</i></a>
                     <div class="collapsible-body indigo darken">
                         <ul>
-                            <li><a class=" waves-effect white-text" href="cuestionarios.php">Gestión de Cuestionarios</a></li>
-                            <li><a class="waves-effect white-text" href="enviarCuestionario.php">Envío de Cuestionarios</a></li>
+                            <li><a class=" waves-effect white-text" href="{{ url('cuestionarios') }}">Gestión de Cuestionarios</a></li>
+                            <li><a class="waves-effect white-text" href="{{ url('enviarcuestionario') }}">Envío de Cuestionarios</a></li>
                         </ul>
                     </div>
                 </li>
             </ul>
         </li>
-        <li><a class="waves-effect white-text" href="reportes.php">Reportes</a></li>
+        <li><a class="waves-effect white-text" href="{{ url('reportes') }}">Reportes</a></li>
 
     </ul>
     <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>

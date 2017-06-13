@@ -14,6 +14,7 @@ return array(
     'CTEC\\Http\\Controllers\\Auth\\RegisterController' => $baseDir . '/app/Http/Controllers/Auth/RegisterController.php',
     'CTEC\\Http\\Controllers\\Auth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ResetPasswordController.php',
     'CTEC\\Http\\Controllers\\InstalacionController' => $baseDir . '/app/Http/Controllers/InstalacionController.php',
+    'CTEC\\Http\\Controllers\\PreguntasDefaultController' => $baseDir . '/app/Http/Controllers/PreguntasDefaultController.php',
     'CTEC\\Http\\Controllers\\RequestController' => $baseDir . '/app/Http/Controllers/RequestController.php',
     'CTEC\\Http\\Controllers\\ServiciosDefaultController' => $baseDir . '/app/Http/Controllers/ServiciosDefaultController.php',
     'CTEC\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',

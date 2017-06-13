@@ -67,6 +67,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="materialize" level="application" />
+    <orderEntry type="library" name="jquery-2.2.4" level="application" />
     <orderEntry type="module-library">
       <library name="PHP" type="php">
         <CLASSES>
@@ -209,7 +211,5 @@
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="library" name="materialize" level="application" />
-    <orderEntry type="library" name="jquery-2.2.4" level="application" />
   </component>
 </module>
