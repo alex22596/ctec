@@ -28,4 +28,6 @@ Route::group(['middleware' => 'revalidate'],function(){
     Route::resource('serviciosdefault','ServiciosDefaultController');
     Route::resource('preguntas','PreguntasDefaultController');
     Route::resource('cuestionarios','CuestionarioController');
+    Route::resource('clientecuestionario', 'CrearCuestionarioController');
+    Route::resource('enviarcuestionario', 'EnviarCuestionarioController');
 });
