@@ -21,7 +21,7 @@ class CrearPregunta extends Migration
             $table->timestamps();
         });
         Schema::table('pregunta', function($table) {
-            $table->foreign('evaluacion_id')->references('id')->on('evaluacion');
+            $table->foreign('evaluacion_id')->references('id')->on('evaluacion')->onDelete('cascade');
         });
     }
 

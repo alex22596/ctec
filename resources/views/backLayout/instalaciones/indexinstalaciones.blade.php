@@ -12,7 +12,7 @@
                     </div>
                     <div class="input-field col s12">
                         <select id="servicios" multiple>
-                            <option value="" disabled selected>Selecciones los SErvicios d</option>
+                            <option value="" disabled selected>Selecciones los Servicios</option>
                             @foreach($serviciosDefaults as $serviciosDefault)
                                 <option name="servicios[]" value={{ $serviciosDefault->nombre }}>{{ $serviciosDefault->nombre }}</option>
                             @endforeach
