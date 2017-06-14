@@ -21,7 +21,6 @@ Route::group(['middleware' => 'revalidate'],function(){
     Route::post('/instalaciones/serviciosseleccionados', 'RequestController@instalaciones');
     Route::post('/cuestionarios/agregarcuestionario','RequestController@cuestionarios');
     Route::post('/preguntas/agregarpregunta','RequestController@preguntas');
-    Route::get('/servicios/editar', 'RequestController@editarServicio');
 
     Route::post('/preguntas/agregarpreguntadefault','PreguntasDefaultController@preguntasdefault')
         ->name('preguntas.agregarpreguntadefault');

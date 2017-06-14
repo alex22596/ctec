@@ -15,6 +15,31 @@
                     <i class="material-icons right">send</i>
                 </button>
             </form>
+            <script>
+                $("#serviciosForm").submit(function (e) {
+                    var nombreServicio = $('#servicio').val();
+                    e.preventDefault();
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+                    $.ajax({
+                        type: "POST",
+                        dataType: "json",
+                        params: {_token:token},
+                        url: "serviciosdefault",
+                        data: {'nombreServicio': nombreServicio},
+                        success: function (e) {
+                            Materialize.toast('Servicio Creado',3000);
+                            $("#refresh").load(location.href + " #refresh", function () {
+                                $.getScript('js/modal.js');
+                            });
+                            console.log(e.mensaje);
+                        }
+                    });
+                });
+            </script>
             <div class="row paddingTop">
                 <h4 class="left-align">
                     Servicios
@@ -33,7 +58,7 @@
                                                 class="material-icons center">edit</i></a>
                                         <div id="modal1" class="modal">
                                             <div class="modal-content">
-                                                <form method="GET" id="editarFormServicio" action="">,
+                                                <form method="get" id="editarServicioForm">,
                                                     <div class="row">
                                                         <div class="input-field col s12">
                                                             <input id="editarServicio" type="text" class="validate">
@@ -42,7 +67,7 @@
                                                     </div>
                                                     <div class="modal-footer">
                                                         <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
-                                                        <button id="editarServicioSubmit" class="btn waves-effect waves-light" type="submit">Editar
+                                                        <button class="btn waves-effect waves-light" type="submit">Editar
                                                             <i class="material-icons right">send</i>
                                                         </button>
                                                     </div>

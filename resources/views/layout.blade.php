@@ -16,7 +16,6 @@
     <script src="js/index.js"></script>
     <script src="js/preventBack.js"></script>
     <script src="js/dropdown.js"></script>
-    <script src="js/request.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Document</title>
 </head>
