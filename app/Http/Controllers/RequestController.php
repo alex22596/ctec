@@ -1,7 +1,8 @@
 <?php
 
 namespace CTEC\Http\Controllers;
-
+use Mail;
+use CTEC\Mail\Cuestionario;
 use CTEC\Models\Instalacion;
 use CTEC\Models\Pregunta;
 use CTEC\Models\PreguntasDefault;
@@ -9,6 +10,7 @@ use CTEC\Models\Servicio;
 use CTEC\Models\Evaluacion;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+
 
 class RequestController extends Controller
 {
@@ -68,15 +70,6 @@ class RequestController extends Controller
         return $preguntaDefault;
     }
 
-    public function preguntas($instalacion, $pregunta){
-        $preguntaDefault = self::getDataPreguntaDefault($pregunta);
-        $nuevaPregunta = new Pregunta();
-        $nuevaPregunta->contenido = $preguntaDefault->contenido;
-        $nuevaPregunta->tipo = $preguntaDefault->tipo;
-        $nuevaPregunta->evaluacion_id = intval($instalacion);
-        $nuevaPregunta->save();
-    }
-
     public function preguntasdefault(Request $request){
         $contenidoPregunta  = $request['contenidoPregunta'];
         $tipoPregunta = $request['tipoPregunta'];
@@ -87,5 +80,23 @@ class RequestController extends Controller
         $nuevaPreguntaDefault->save();
 
         return redirect()->back();
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function enviarcorreo(Request $request){
+        $clientesSeleccionados = $request['clientes'];
+        $evaluacionid = $request['evaluacion'];
+
+
+        foreach ($clientesSeleccionados as $cliente){
+            $cuestionario = new Cuestionario();
+            \Monolog\Handler\mail('kevinandres.126@gmail.com')->send($cuestionario);
+        }
+
+        return response()->json(["mensaje" => 'OK']);
+
     }
 }

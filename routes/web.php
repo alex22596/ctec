@@ -19,7 +19,8 @@ Route::group(['middleware' => 'revalidate'],function(){
     Route::post('/login', 'AdministradorController@iniciarSesion')->name('login.post');
     Route::post('/instalaciones/serviciosseleccionados', 'RequestController@instalaciones');
     Route::post('/cuestionarios/agregarcuestionario','RequestController@cuestionarios');
-    Route::post('/preguntas/agregarpregunta','RequestController@preguntas');
+    Route::post('/cuestionarios/enviarcorreo','RequestController@enviarcorreo');
+
 
     Route::post('/preguntas/agregarpreguntadefault','PreguntasDefaultController@preguntasdefault')
         ->name('preguntas.agregarpreguntadefault');
@@ -28,5 +29,7 @@ Route::group(['middleware' => 'revalidate'],function(){
     Route::resource('serviciosdefault','ServiciosDefaultController');
     Route::resource('preguntas','PreguntasDefaultController');
     Route::resource('cuestionarios','CuestionarioController');
+    Route::resource('clientecuestionario','CrearCuestionarioController');
+    Route::resource('enviarcuestionario','EnviarCuestionarioController');
 
 });

@@ -16,6 +16,7 @@ class VerifyCsrfToken extends BaseVerifier
         "cuestionarios/agregarcuestionario",
         "preguntas/agregarpregunta",
         "preguntas/agregarpreguntadefault",
+        "cuestionarios/enviarcorreo",
 
     ];
 }
