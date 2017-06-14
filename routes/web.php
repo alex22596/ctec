@@ -15,18 +15,18 @@ Route::group(['middleware' => 'revalidate'],function(){
     Route::get('/', function () {
         return view('iniciarSesion');
     });
+    Route::get('/servicios', 'ServiciosDefaultController@returnView');
 
     Route::post('/login', 'AdministradorController@iniciarSesion')->name('login.post');
     Route::post('/instalaciones/serviciosseleccionados', 'RequestController@instalaciones');
     Route::post('/cuestionarios/agregarcuestionario','RequestController@cuestionarios');
     Route::post('/preguntas/agregarpregunta','RequestController@preguntas');
+    Route::get('/servicios/editar', 'RequestController@editarServicio');
 
     Route::post('/preguntas/agregarpreguntadefault','PreguntasDefaultController@preguntasdefault')
         ->name('preguntas.agregarpreguntadefault');
-
     Route::resource('instalaciones', 'InstalacionController');
     Route::resource('serviciosdefault','ServiciosDefaultController');
     Route::resource('preguntas','PreguntasDefaultController');
     Route::resource('cuestionarios','CuestionarioController');
-
 });

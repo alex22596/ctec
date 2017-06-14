@@ -19,6 +19,11 @@ class ServiciosDefaultController extends Controller
         return view('backLayout.instalaciones.indexinstalaciones', compact('serviciosDefaults'));
     }
 
+    public function returnView(){
+        $serviciosDefaults = ServiciosDefault::orderBy('id','DESC')->paginate(3);
+        return view('backLayout.servicios.indexservicios', compact('serviciosDefaults'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -26,7 +31,7 @@ class ServiciosDefaultController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -37,7 +42,13 @@ class ServiciosDefaultController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $nombreServicioDefault  = $request['nombreServicio'];
+        //dd($nombreServicioDefault);
+        $nuevoServicioDefault = new ServiciosDefault();
+        $nuevoServicioDefault->nombre = $nombreServicioDefault;
+        $nuevoServicioDefault->save();
+
+        return response()->json(["mensaje" => "OK"]);
     }
 
     /**
@@ -59,7 +70,7 @@ class ServiciosDefaultController extends Controller
      */
     public function edit($id)
     {
-        //
+        return response()->json(["mensaje" => $id]);
     }
 
     /**
@@ -71,7 +82,8 @@ class ServiciosDefaultController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $servicio = ServiciosDefault::find($id);
+        return redirect()->back()->with('info', $servicio);
     }
 
     /**
@@ -82,6 +94,8 @@ class ServiciosDefaultController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $servicio = ServiciosDefault::find($id);
+        $servicio->delete();
+        return back()->with('info','El Servicio fue Eliminado');
     }
 }

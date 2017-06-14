@@ -16,7 +16,6 @@ class PreguntasDefaultController extends Controller
     public function index()
     {
         $preguntas = PreguntasDefault::orderBy('id','DESC')->paginate(3);
-        //$serviciosDefaults = ServiciosDefault::orderBy('id','DESC')->paginate();
         return view('backLayout.preguntas.indexpreguntas', compact('preguntas'));
     }
 

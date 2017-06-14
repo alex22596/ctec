@@ -12,9 +12,11 @@
 
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    <script src="js/modal.js"></script>
     <script src="js/index.js"></script>
     <script src="js/preventBack.js"></script>
     <script src="js/dropdown.js"></script>
+    <script src="js/request.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Document</title>
 </head>
@@ -34,6 +36,7 @@
         <li><a class="waves-effect white-text" href="{{ url('instalaciones') }}">Gestión de Instalaciones</a></li>
         <li><a class="waves-effect white-text" href="{{ route('preguntas.index') }}">Gestión de Preguntas</a></li>
         <li><a class=" waves-effect white-text" href="{{ url('cuestionarios') }}">Gestión de Cuestionarios</a></li>
+        <li><a class="waves-effect white-text" href="{{ url('servicios') }}">Gestion de Servicios</a></li>
         <li><a class="waves-effect white-text" href="{{ url('enviarcuestionario') }}">Envío de Cuestionarios</a></li>
         <li><a class="waves-effect white-text" href="{{ url('reportes') }}">Reportes</a></li>
         <li><a class="waves-effect white-text" href="#">Cerrar Sesión</a></li>

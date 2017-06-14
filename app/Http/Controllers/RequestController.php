@@ -60,6 +60,10 @@ class RequestController extends Controller
         return response()->json(["mensaje" => "OK"]);
     }
 
+    public function editarServicio(Request $request){
+        return view('iniciarSesion');
+    }
+
     public function getLastEvaluacion(){
         return Evaluacion::orderBy('id','DESC')->first();
     }
