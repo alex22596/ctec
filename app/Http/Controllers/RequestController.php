@@ -28,7 +28,7 @@ class RequestController extends Controller
             $newServicio->save();
         }
 
-        return redirect()->back()->with('info','La instalacion fue creada');
+        return response()->json(["mensaje" => "OK"]);
 
     }
 
@@ -57,7 +57,7 @@ class RequestController extends Controller
             $nuevaPregunta->evaluacion_id = $id;
             $nuevaPregunta->save();
         }
-        return;
+        return response()->json(["mensaje" => "OK"]);
     }
 
     public function getLastEvaluacion(){

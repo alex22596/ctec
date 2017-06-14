@@ -34,11 +34,11 @@
         </div>
     </div>
     <script>
-        $("#agregarCuestionario").submit(function () {
+        $("#agregarCuestionario").submit(function (e) {
             var nombreCuestionario = $('#nombreCuestionario').val();
             var instalacion = $('#instalacion option:selected').val();
             var preguntas = $('#preguntasdefault').val();
-
+            e.preventDefault();
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -51,9 +51,8 @@
                 url: "cuestionarios/agregarcuestionario",
                 data: {'nombreCuestionario': nombreCuestionario, 'instalacion':instalacion,'preguntas':preguntas},
                 success: function (e) {
-                    alert(preguntas);
-                    console.log(e);
-                    console.log("OK");
+                    Materialize.toast('Cuestionario Creado',3000);
+                    $("#refresh").load(location.href + " #refresh");
                 }
             });
         });
@@ -65,6 +64,7 @@
                 Cuestionarios
             </h4>
             @include('backLayout.instalaciones.fragmento.info')
+            <div id="refresh">
             @foreach($evaluaciones as $evaluacion)
                 <td><i class="flow-text">{{ $evaluacion->nombre }}</i></td>
                 <table class="marginTop">
@@ -102,6 +102,7 @@
             <div class="paddingTop left-align">
                 {!! $instalaciones->links() !!}
             </div>
+        </div>
         </div>
     </div>
 @endsection

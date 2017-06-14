@@ -24,9 +24,10 @@
                 </button>
             </form>
             <script>
-                $("#serviciosForm").submit(function () {
+                $("#serviciosForm").submit(function (e) {
                     var serviciosSeleccionados = $('#servicios').val();
                     var instalacionNombre = $('#nombreInstalacion').val();
+                    e.preventDefault();
                     $.ajaxSetup({
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -39,7 +40,8 @@
                         url: "instalaciones/serviciosseleccionados",
                         data: {'serviciosSeleccionados': serviciosSeleccionados, 'nombreInstalaciones':instalacionNombre},
                         success: function () {
-                            console.log("OK");
+                            Materialize.toast('Instalación Creada',3000);
+                            $("#refresh").load(location.href + " #refresh");
                         }
                     });
                 });
@@ -52,6 +54,7 @@
                 Instalaciones
             </h4>
             @include('backLayout.instalaciones.fragmento.info')
+            <div id="refresh">
             @foreach($instalaciones as $instalacion)
                 <table class="marginTop">
                     <tbody>
@@ -88,6 +91,7 @@
            <div class="paddingTop left-align">
                    {!! $instalaciones->links() !!}
            </div>
+        </div>
         </div>
     </div>
 @endsection

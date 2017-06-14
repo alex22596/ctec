@@ -33,21 +33,10 @@
         <li class="marginDivider"><div class="divider"></div></li>
         <li><a class="waves-effect white-text" href="{{ url('instalaciones') }}">Gestión de Instalaciones</a></li>
         <li><a class="waves-effect white-text" href="{{ route('preguntas.index') }}">Gestión de Preguntas</a></li>
-
-        <li class="no-padding">
-            <ul class="collapsible collapsible-accordion">
-                <li>
-                    <a class="collapsible-header white-text">Cuestionarios<i class="material-icons white-text">arrow_drop_down</i></a>
-                    <div class="collapsible-body indigo darken">
-                        <ul>
-                            <li><a class=" waves-effect white-text" href="{{ url('cuestionarios') }}">Gestión de Cuestionarios</a></li>
-                            <li><a class="waves-effect white-text" href="{{ url('enviarcuestionario') }}">Envío de Cuestionarios</a></li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </li>
+        <li><a class=" waves-effect white-text" href="{{ url('cuestionarios') }}">Gestión de Cuestionarios</a></li>
+        <li><a class="waves-effect white-text" href="{{ url('enviarcuestionario') }}">Envío de Cuestionarios</a></li>
         <li><a class="waves-effect white-text" href="{{ url('reportes') }}">Reportes</a></li>
+        <li><a class="waves-effect white-text" href="#">Cerrar Sesión</a></li>
 
     </ul>
     <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
